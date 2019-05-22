@@ -1,0 +1,89 @@
+html {
+  margin: 0;
+  padding: 0;
+  top: 20px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.navStyle {
+  background: #282c34;
+  height: 20vh;
+  width: 100vw;
+  padding: 5px; 
+  padding-top: 20px;
+}
+
+.navStyle h4 a {
+  text-decoration: none;
+  color: white;
+
+}
+
+.budgetStyle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+
+.info {
+  align-self: flex-start;
+  flex-basis: 550px;
+}
+
+.toggleButtons {
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  border-radius: 15px;
+  flex-basis: 100px;
+  
+}
+
+.input input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.toggleInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.expenseForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .budgetStyle {
+    flex-direction: column
+  }
+
+  .toggleInputs {
+    margin-bottom: 1.5rem;
+  }
+
+  .info {
+    flex-basis: 350px;
+  }
+
+
+}
+
+@media only screen and (max-width: 900px) {
+  .toggleButtons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}
+
