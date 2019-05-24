@@ -4,9 +4,10 @@ html {
   top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
+  /* color: #61dafb;  light blue*/
+
+/* Router Component */
 
 .navStyle {
   background: #282c34;
@@ -16,11 +17,114 @@ html {
   padding-top: 20px;
 }
 
-.navStyle h4 a {
+.navStyle h4 .link {
   text-decoration: none;
   color: white;
 
 }
+
+/* .link:hover {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+} */
+
+.link {
+  cursor: pointer;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: whitesmoke;
+ 
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 3rem; 
+}
+.link span {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 250ms, -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+  padding: 0 0.1em;
+}
+.link span:nth-child(0n) {
+  transition-delay: 0ms;
+}
+.link span:nth-child(0n):after {
+  transition-delay: 0ms;
+}
+.link span:nth-child(1n) {
+  transition-delay: 83.3333333333ms;
+}
+.link span:nth-child(1n):after {
+  transition-delay: 83.3333333333ms;
+}
+.link span:nth-child(2n) {
+  transition-delay: 166.6666666667ms;
+}
+.link span:nth-child(2n):after {
+  transition-delay: 166.6666666667ms;
+}
+.link span:nth-child(3n) {
+  transition-delay: 250ms;
+}
+.link span:nth-child(3n):after {
+  transition-delay: 250ms;
+}
+.link span:after {
+  content: '';
+  position: absolute;
+  top: 110%;
+  left: -1%;
+  width: 102%;
+  height: .8em;
+  background: rgba(0,0,0,.4);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scaley(0.1);
+          transform: scaley(0.1);
+  transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 250ms, -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 250ms;
+}
+.link:hover span {
+  -webkit-transform: translateY(-1em);
+          transform: translateY(-1em);
+          color: white;
+}
+.link:hover span:after {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+.link:active span {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 125ms, -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition-delay: 0 !important;
+}
+.link:active span:after {
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  transition: -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 125ms, -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 125ms;
+  transition-delay: 0 !important;
+}
+
+
+/* Budget Component */
 
 .budgetStyle {
   display: flex;
@@ -29,14 +133,31 @@ html {
   margin: 20px;
 }
 
+/* Info Component */
+
 .info {
   align-self: flex-start;
   flex-basis: 550px;
 }
 
+td img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+/* ToggleEandP Component */
+
 .toggleButtons {
   margin-bottom: 1.5rem;
 }
+
+.toggleInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Expenses and PayCheck Component */
 
 .input {
   border-radius: 15px;
@@ -49,11 +170,6 @@ html {
   margin-right: 10px;
 }
 
-.toggleInputs {
-  display: flex;
-  flex-direction: column;
-}
-
 .expenseForm {
   display: flex;
   flex-direction: column;
@@ -61,9 +177,18 @@ html {
   justify-content: center;
 }
 
+/* fix @media */
+@media only screen and (max-width: 600px) {
+  .info {
+    width: 250px;
+    align-self: center;
+  }
+
+}
+
 @media only screen and (max-width: 700px) {
   .budgetStyle {
-    flex-direction: column
+    flex-direction: column;
   }
 
   .toggleInputs {
@@ -71,7 +196,8 @@ html {
   }
 
   .info {
-    flex-basis: 350px;
+    width: 500px;
+    align-self: center;
   }
 
 
@@ -79,11 +205,25 @@ html {
 
 @media only screen and (max-width: 900px) {
   .toggleButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-basis: 100px;
+  }
+
+}
+
+@media only screen and (max-width: 950px) {
+  .toggleButtons {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-
+  .link span {
+    font-size: 15px;
+  }
 }
+
+
 
