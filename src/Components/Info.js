@@ -13,14 +13,12 @@ class Info extends Component {
   }
 
 
-
 render() {
   let { list } = this.props
   return (
     <Table dark>
     <thead>
       <tr>
-        {/* <th>Item #</th> */}
         <th>Date</th>
         <th>Item</th>
         <th>Amount</th>
@@ -31,7 +29,6 @@ render() {
       {list.map((item,index) => {
         return (
           <tbody key={index}>
-            {/* <td>{item.expense.id}</td> */}
             <td>{item.expense.date}</td>
             <td>{item.expense.item}</td>
             <td>{item.expense.amount}</td>
@@ -40,7 +37,7 @@ render() {
             onClick={() => {axios
               .delete(`/api/expenses/${item.expense.id}`)
               .then(response => {
-                this.props.deleteItem(response.data);
+                this.props.deleteItem(response.data,item.expense.amount);
               })}}
             /></td>
           </tbody>

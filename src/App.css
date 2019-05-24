@@ -7,6 +7,11 @@ html {
 
   /* color: #61dafb;  light blue*/
 
+/* Jumbo home */
+.jumbo {
+  text-align: center;
+}
+
 /* Router Component */
 
 .navStyle {
@@ -145,6 +150,16 @@ td img {
   height: 1.5rem;
 }
 
+/* total */
+
+.total {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: flex-start;
+  flex-basis: 150px;
+  margin-top: 1rem;
+}
+
 
 /* ToggleEandP Component */
 
@@ -175,6 +190,21 @@ td img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* Footer Component */
+
+footer {
+  background: #282c34;
+  width:100vw;
+  height:16vh;
+  
+  bottom: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+ 
 }
 
 /* fix @media */

@@ -4,6 +4,7 @@ import AppRouter from './Components/AppRouter'
 import ToggleEandP from './Components/ToggleEandP'
 import Expenses from './Components/Expenses'
 import PayCheck from './Components/PayCheck'
+import Footer from './Components/Footer'
 import axios from 'axios'
 
 class Budget extends Component {
@@ -13,6 +14,8 @@ class Budget extends Component {
       view: 'expense',
       list: [],
       id: 1,
+      total: [],
+      totalAmt: 0,
       error: ''
     }
     this.toggleView = this.toggleView.bind(this)
@@ -37,10 +40,9 @@ class Budget extends Component {
       });
   }
 
-  // fix id to increment by one
   updateList(item, e) {
     
-    let { id } = this.state;
+    let { id, total, totalAmt, list } = this.state;
     item.id = id++
     e.preventDefault();
         axios
@@ -52,15 +54,27 @@ class Budget extends Component {
             
         })
         .catch(error => { 
-            console.log(error);
+          console.log(error);
+          this.setState({ error: 'An error occurred' });
         });
     
-     
+    total.push(item.amount)
+    totalAmt = total.reduce((a,b) => +a + +b)
+ 
+      this.setState({ totalAmt: totalAmt})
+  
+    
     
   }
 
-  deleteItem(newList) {
-    this.setState({ list: newList })
+  deleteItem(newList,itemAmount) {
+    let { totalAmt } = this.state
+    let newTotal = +totalAmt - +itemAmount
+    this.setState({ list: newList, totalAmt: newTotal })
+
+    
+    
+  
   }
 
   render() {
@@ -68,7 +82,7 @@ class Budget extends Component {
     return (
       <div>
         <AppRouter />
-        <main className='budgetStyle'>
+        <div className='budgetStyle'>
           <aside className='toggleInputs'>
           <ToggleEandP 
           toggleView={this.toggleView}
@@ -93,9 +107,14 @@ class Budget extends Component {
           deleteItem={this.deleteItem}
           />
         </div>
-      </main>
+        <div className='total'>
+          <h4>Cash:</h4>
+          <h4>{this.state.totalAmt}</h4>
+        </div>
       </div>
-      
+
+      <Footer />
+      </div>
     )
   }
 }

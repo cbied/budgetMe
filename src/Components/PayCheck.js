@@ -29,7 +29,7 @@ constructor(props) {
       this.props.updateList(listItem,e)
 }
     render() {
-      let { date, amount, category } = this.state
+      let { date, amount, category } = this.state;
       return (
         <form className="expenseForm">
             <h3>Paycheck</h3>

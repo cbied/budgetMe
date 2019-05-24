@@ -31,6 +31,7 @@ class Expenses extends Component {
             category
         }
         this.props.updateList(listItem,e)
+        // this.setState({ item: '', date: '', amount: '', category: '' })
     }
 
     render() {
