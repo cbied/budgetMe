@@ -1,11 +1,14 @@
 let expenses = []
 
+let totalAmt = 0
+
 const getItems = (req,res) => {
     res.status(200).json(expenses)
 }
 
 const addItems = (req,res) => {
     expenses.unshift(req.body)
+    totalAmt += totalAmt
     res.status(200).json(expenses)
 }
 
@@ -15,6 +18,10 @@ const deleteItems = (req,res) => {
     res.json(expenses)
 }
 
+const updateItems = (req,res) => {
+expenses.expense[+req.params.id].category = req.body.category;
+res.json(expenses);
+}
 
 
 
@@ -22,5 +29,6 @@ const deleteItems = (req,res) => {
 module.exports = {
     getItems,
     addItems,
-    deleteItems
+    deleteItems,
+    updateItems
 }

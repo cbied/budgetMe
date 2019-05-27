@@ -10,7 +10,7 @@ function ToggleEandP(props) {
                 >Add Expense</Button>{' '}
                 <Button color="success"
                 onClick={() => props.toggleView('paycheck')}
-                >Add Paycheck</Button>{' '}
+                >Add Income</Button>{' '}
             </div>
         )
     

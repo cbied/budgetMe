@@ -12,6 +12,8 @@ html {
   text-align: center;
 }
 
+
+
 /* Router Component */
 
 .navStyle {
@@ -93,7 +95,7 @@ html {
   left: -1%;
   width: 102%;
   height: .8em;
-  background: rgba(0,0,0,.4);
+  background: rgba(360,360,360,.4);
   -webkit-transform-origin: top center;
           transform-origin: top center;
   -webkit-transform: scaley(0.1);
@@ -131,7 +133,29 @@ html {
 
 /* Budget Component */
 
-.budgetStyle {
+.budgetLayout {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.expensesTable, .incomeTable {
+  flex-basis: 400px;
+}
+
+.incomeTable {
+  align-self: flex-start
+}
+
+.budgetInputs {
+  width: 3.7rem;
+}
+
+
+/* Cashflow Component */
+
+.cashflowStyle {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -192,13 +216,23 @@ td img {
   justify-content: center;
 }
 
+.category {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.category h6 {
+  
+  margin-right: 1rem;
+}
+
 /* Footer Component */
 
 footer {
   background: #282c34;
   width:100vw;
   height:16vh;
-  
   bottom: 0;
   color: white;
   display: flex;
@@ -206,6 +240,25 @@ footer {
   align-items: flex-end;
  
 }
+
+#overlay {
+  position: absolute; /* Sit on top of the page content */
+  top: 4.5rem; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  background-color: rgba(0,0,0,0.2);
+  width: 100vw;
+  height: 150vh;
+}
+
+#overlay h1 {
+  padding: 350px;
+}
+
 
 /* fix @media */
 @media only screen and (max-width: 600px) {
@@ -217,7 +270,7 @@ footer {
 }
 
 @media only screen and (max-width: 700px) {
-  .budgetStyle {
+  .cashflowStyle {
     flex-direction: column;
   }
 
@@ -226,14 +279,12 @@ footer {
   }
 
   .info {
-    width: 500px;
+    width: 400px;
     align-self: center;
   }
-
-
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .toggleButtons {
     display: flex;
     flex-direction: column;
@@ -241,14 +292,14 @@ footer {
     flex-basis: 100px;
   }
 
+  .cardFlex {
+    flex-direction: column;
+  }
+
 }
 
 @media only screen and (max-width: 950px) {
-  .toggleButtons {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+
 
   .link span {
     font-size: 15px;

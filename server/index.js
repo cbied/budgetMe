@@ -8,6 +8,7 @@ app.use(express.json());
     
 app.get(path, itemController.getItems)
 app.post(path, itemController.addItems)
+app.put(`${path}/:category`, itemController.updateItems)
 app.delete(`${path}/:id`, itemController.deleteItems)
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Button, CardBody, Card, CardText, CardTitle, CardSubtitle, Collapse } from 'reactstrap';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class JumbotronHome extends Component {
   constructor(props) {
@@ -20,17 +20,17 @@ class JumbotronHome extends Component {
           <Container fluid className="jumbo">
             <h1 className="display-3">Welcome to BudgetUp!</h1>
             <p className="lead">We're here to help you keep track of your money!</p>
-            <p className="lead">
+            <div className="lead">
             <Button outline color="secondary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Tips and Info</Button>
               <Collapse isOpen={this.state.collapse}>
                 <Card >
-                  <CardBody className='d-inline-flex mb-4'>
+                  <CardBody className='d-inline-flex mb-4 cardFlex'>
                   <Card>
                     <CardBody>
                       <CardTitle>Start By:</CardTitle>
                       <CardSubtitle><b>Adding your bank balance</b></CardSubtitle>
                       <CardText>Add you bank balance under the <b>Paycheck</b> tab on the Budget page: Click <b>add balance</b> button to get there</CardText>
-                      <Link to="/Budget" target="_top"><Button>Add Balance</Button></Link>
+                      <Link to="/Cashflow" target="_top"><Button>Add Balance</Button></Link>
                     </CardBody>
                   </Card>
                   <Card>
@@ -44,13 +44,13 @@ class JumbotronHome extends Component {
                     <CardBody>
                       <CardTitle>Check out your budget</CardTitle>
                       <CardText>Add what you expect to pay for a category during the course of a month. Update the list from month to month</CardText>
-                      <Link to="/Contact" target="_top"><Button>Add Balance</Button></Link>
+                      <Link to="/Budget" target="_top"><Button>Update Budget</Button></Link>
                     </CardBody>
                   </Card>
                   </CardBody>
                 </Card>
               </Collapse>
-            </p>
+            </div>
           </Container>
         </Jumbotron>
       </div>

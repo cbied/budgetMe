@@ -39,25 +39,25 @@ class AppRouter extends Component {
                       <span>e</span></Link>
                     </NavItem>
                     <NavItem>
-                      <Link to="/Budget" target="_top" className="link">
+                      <Link to="/Cashflow" target="_top" className="link">
+                      <span>C</span>
+                      <span>a</span>
+                      <span>s</span>
+                      <span>h</span>
+                      <span>f</span>
+                      <span>l</span>
+                      <span>o</span>
+                      <span>w</span></Link>
+                    </NavItem>
+                    <NavItem>
+                      <Link to="/Budget" target="_top" className="link"
+                      >
                       <span>B</span>
                       <span>u</span>
                       <span>d</span>
                       <span>g</span>
                       <span>e</span>
                       <span>t</span></Link>
-                    </NavItem>
-                    <NavItem>
-                      <Link to="/Contact" target="_top" className="link">
-                      <span>C</span><span>o</span>
-                      <span>n</span>
-                      <span>t</span>
-                      <span>a</span>
-                      <span>c</span>
-                      <span>t</span>
-                      <span></span>
-                      <span>U</span>
-                      <span>s</span></Link>
                     </NavItem>
                   </Nav>
                 </Collapse>

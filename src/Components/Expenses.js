@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
 
 
 class Expenses extends Component {
@@ -9,11 +9,14 @@ class Expenses extends Component {
             date: '',
             item: '',
             amount: 0,
-            category: ''
+            category: '',
+            btnDropright: false,
+            categories: ['Food', 'Gifts', 'Health/medical', 'Rent/hotels','Transportation','Personal','Day trips','Utilities','Travel/flights','Coffee','Toiletries/Wash','Phone','Groceries','School','Subscriptions','Misc.']
         }
 
         this.handleOnChange = this.handleOnChange.bind(this)
         this.updateList = this.updateList.bind(this)
+        this.select = this.select.bind(this)
     }
 
 
@@ -30,12 +33,20 @@ class Expenses extends Component {
             amount: -amount,
             category
         }
+        console.log(e)
         this.props.updateList(listItem,e)
-        // this.setState({ item: '', date: '', amount: '', category: '' })
+        this.setState({ item: '', date: '', amount: '', category: '' })
+    }
+
+    select(event) {
+        this.setState({
+        dropdownOpen: !this.state.dropdownOpen,
+        category: event.target.innerText
+        });
     }
 
     render() {
-        let { date, item, amount, category } = this.state
+        let { date, item, amount, category, categories } = this.state
         return (
             <form className="expenseForm">
                 <h3>Expenses</h3>
@@ -51,12 +62,26 @@ class Expenses extends Component {
                     <h6>Amount</h6>
                     <input value={amount} className='input' type='number' name='amount' onChange={this.handleOnChange}/>
                 </div>
-                <div>
+                {/* <div>
                     <h6>Category</h6>
                     <input value={category} className='input' type='text' name='category' onChange={this.handleOnChange}/>
+                </div> */}
+                <div className="category">
+                <h6>Category</h6>
+                <Dropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+                    <DropdownToggle caret>
+                        {category}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        {categories.map(category=>
+                        <DropdownItem onClick={this.select} value={category} name='category' onChange={this.handleOnChange}>{category}</DropdownItem>
+                        )}
+                        
+                    </DropdownMenu>
+                </Dropdown>
                 </div>
                 <br/>
-                <Button outline color="danger"
+                <Button outline color="danger" type="submit"
                  onClick={this.updateList}>Add Expense</Button>
             </form>
         )
